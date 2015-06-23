@@ -1,0 +1,20 @@
+{
+    "name": "Twitter-OAuthTool",
+	"addres":"http://twitter-oauthtool.herokuapp.com";
+    "version": "0.0.1", 
+	"description": "",
+	"main": "index.js",
+    "scripts": {
+        "start": "node index.js"
+    }, 
+    "dependencies": {
+        "express": "*",
+        "body-parser":"*",
+		"request":"*",
+		"oauth":"*",
+		"cookie-session":"*"
+    },
+    "engines": {
+    "iojs": "1.0.x"
+    }
+}
