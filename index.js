@@ -35,7 +35,7 @@ app.post('/', function (req, res) {
         req.body.oauth_consumer_key,
         req.body.oauth_signature,
         '1.0A',
-        addres + "/auth/twitter/callback",
+        address + "/auth/twitter/callback",
         'HMAC-SHA1'
     ).getOAuthRequestToken(function (error, oauth_token, oauth_token_secret, results) {
         if (error) {
@@ -64,7 +64,7 @@ app.get('/auth/twitter/callback', function (req, res, next) {
         req.session.oauth.oauth_consumer_key,
         req.session.oauth.oauth_signature,
         '1.0A',
-        addres + "/auth/twitter/callback",
+        address + "/auth/twitter/callback",
         'HMAC-SHA1'
         ).getOAuthAccessToken(
         oauth_data.token,
@@ -82,7 +82,7 @@ app.get('/auth/twitter/callback', function (req, res, next) {
                     '<Font color=gray>Your access token secret : </font>' + oauth_access_token_secret +
                     '<br>' +
                     '<br>' +
-                    '<a href=' + addres + '>Go home</a>' +
+                    '<a href=' + address + '>Go home</a>' +
                     '</form></body>';
                 res.send(html);
             }
@@ -90,6 +90,6 @@ app.get('/auth/twitter/callback', function (req, res, next) {
         );
     }
     else {
-        res.redirect(addres);
+        res.redirect(address);
     }
 });
