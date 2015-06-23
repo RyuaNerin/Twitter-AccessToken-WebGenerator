@@ -1,4 +1,4 @@
 echo off
-title anionemeal log
+title twitter-oauthtool log
 cls
 heroku logs --tail

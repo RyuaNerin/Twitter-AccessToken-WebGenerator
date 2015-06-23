@@ -7,7 +7,7 @@ var session = require('cookie-session')
 app.use(session({
     keys: ['secret1', 'secret2']
 }))
-require('http').createServer(app).listen(3000, function () { });
+require('http').createServer(app).listen(process.env.PORT || 3000, function () { });
 app.get("/", function (req, res) {
     var html = '<head><title>Twitter application access token generator</title></head><body>' +
         '<form action="/" method="post">' +
