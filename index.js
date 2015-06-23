@@ -1,4 +1,6 @@
-﻿var address = require('pkginfo').addres;
+﻿// Your domain name
+var address = "http://twitter-oauthtool.herokuapp.com";
+
 var OAuth = require('oauth');
 var express = require('express');
 var app = express();
