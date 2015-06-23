@@ -1,6 +1,6 @@
 {
     "name": "Twitter-OAuthTool",
-	"addres":"http://twitter-oauthtool.herokuapp.com";
+	"addres":"http://twitter-oauthtool.herokuapp.com",
     "version": "0.0.1", 
 	"description": "",
 	"main": "index.js",
