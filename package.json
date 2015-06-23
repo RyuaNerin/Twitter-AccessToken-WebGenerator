@@ -12,7 +12,8 @@
         "body-parser":"*",
 		"request":"*",
 		"oauth":"*",
-		"cookie-session":"*"
+		"cookie-session":"*",
+		"pkginfo":"*"
     },
     "engines": {
     "iojs": "1.0.x"

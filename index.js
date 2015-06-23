@@ -1,4 +1,5 @@
-﻿var OAuth = require('oauth');
+﻿var address = require('pkginfo').addres;
+var OAuth = require('oauth');
 var express = require('express');
 var app = express();
 app.use(require('body-parser')());
@@ -32,7 +33,7 @@ app.post('/', function (req, res) {
         req.body.oauth_consumer_key,
         req.body.oauth_signature,
         '1.0A',
-        pkginfo.addres + "/auth/twitter/callback",
+        addres + "/auth/twitter/callback",
         'HMAC-SHA1'
     ).getOAuthRequestToken(function (error, oauth_token, oauth_token_secret, results) {
         if (error) {
@@ -61,7 +62,7 @@ app.get('/auth/twitter/callback', function (req, res, next) {
         req.session.oauth.oauth_consumer_key,
         req.session.oauth.oauth_signature,
         '1.0A',
-        pkginfo.addres + "/auth/twitter/callback",
+        addres + "/auth/twitter/callback",
         'HMAC-SHA1'
         ).getOAuthAccessToken(
         oauth_data.token,
@@ -79,7 +80,7 @@ app.get('/auth/twitter/callback', function (req, res, next) {
                     '<Font color=gray>Your access token secret : </font>' + oauth_access_token_secret +
                     '<br>' +
                     '<br>' +
-                    '<a href=' + pkginfo.addres + '>Go home</a>' +
+                    '<a href=' + addres + '>Go home</a>' +
                     '</form></body>';
                 res.send(html);
             }
@@ -87,6 +88,6 @@ app.get('/auth/twitter/callback', function (req, res, next) {
         );
     }
     else {
-        res.redirect(pkginfo.addres);
+        res.redirect(addres);
     }
 });
