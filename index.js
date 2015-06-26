@@ -12,7 +12,7 @@ app.use(session({
 }))
 require('http').createServer(app).listen(process.env.PORT || 3000, function () { });
 app.get("/", function (req, res) {
-    var html = '<head><title>Twitter application access token generator</title></head><body>' +
+    var html = '<html><head><title>Twitter application access token generator</title></head><body>' +
         '<form action="/" method="post">' +
         '<Font Size=16>Twitter application access token generator</font><br><br>' +
         'Application consumer key : ' +
@@ -23,7 +23,7 @@ app.get("/", function (req, res) {
         '<br>' +
         '<br>' +
         '<button type="submit">Submit</button>' +
-        '</form></body>';
+        '</form></body></html>';
 
     res.send(html);
 
@@ -75,7 +75,7 @@ app.get('/auth/twitter/callback', function (req, res, next) {
                 res.send(error);
             }
             else {
-                var html = '<head><title>Your access token generated!</title></head><body>' +
+                var html = '<html><head><title>Your access token generated!</title></head><body>' +
                     '<form action="/" method="post">' +
                     '<Font color=gray>Your access token : </font>' + oauth_access_token +
                     '<br>' +
@@ -83,7 +83,7 @@ app.get('/auth/twitter/callback', function (req, res, next) {
                     '<br>' +
                     '<br>' +
                     '<a href=' + address + '>Go home</a>' +
-                    '</form></body>';
+                    '</form></body></html>';
                 res.send(html);
             }
         }
